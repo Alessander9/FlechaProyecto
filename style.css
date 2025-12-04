@@ -1,0 +1,809 @@
+:root {
+      --green-dark: #006838;
+      --green: #1b9b5e;
+      --green-soft: #e5f7f1;
+      --orange: #ff8a00;
+      --orange-dark: #e47200;
+      --gray-light: #f5f5f5;
+      --gray: #888888;
+      --text: #333333;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        /* margin-top has been removed */
+    }
+
+    .main-navbar {
+        background-color: #ffffff;
+        border-bottom: 1px solid #eee;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .main-navbar a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .main-navbar a:hover {
+        color: var(--green);
+    }
+
+    .static-bar {
+        background-color: var(--green-dark);
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 0.8rem;
+        padding: 5px 0;
+        /* No longer fixed */
+    }
+
+    .static-bar span {
+        margin: 0 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .static-bar .material-icons {
+        font-size: 1.1rem; /* Adjust as needed */
+        margin-right: 5px;
+    }
+
+    .main-header {
+        display: flex;
+        align-items: center; /* Vertically align items */
+        justify-content: space-between; /* Distribute items with space between them */
+        padding: 10px 20px;
+        background-color: #f8f8f8; /* Light background for the header */
+        border-bottom: 1px solid #eee;
+    }
+
+    .brand-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--green-dark);
+        text-decoration: none; /* If it becomes a link */
+        flex-shrink: 0; /* Prevent it from shrinking */
+        /* padding-right: 20px; /* Add some space to the right of the logo - removed for better centering */
+    }
+    .hamburger-menu {
+        display: none; /* Hidden by default */
+    }
+
+    .user-actions-container {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0; /* Prevent it from shrinking */
+        /* padding-left: 20px; /* Add some space to the left of the actions - removed for better centering */
+    }
+
+    .cart-button-container,
+    .login-button-container {
+        margin-left: 10px; /* Space between the buttons */
+        flex-shrink: 0; /* Prevent buttons from shrinking */
+    }
+
+    .whatsapp-cart-button,
+    .login-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background-color: var(--green); /* Using the defined green color */
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-cart-button:hover,
+    .login-button:hover {
+        background-color: var(--green-dark);
+    }
+
+    .whatsapp-cart-button .material-icons,
+    .login-button .material-icons {
+        margin-right: 5px;
+        font-size: 1.2rem; /* Consistent icon size */
+    }
+
+    .search-bar-container {
+        flex-grow: 1; /* Allow it to grow and take available space */
+        display: flex;
+        justify-content: center; /* Center the search input within its container */
+    }
+
+    .search-input-wrapper {
+        position: relative;
+        width: 35rem; /* Set fixed width on the wrapper */
+    }
+
+    .product-search-input {
+        width: 100%; /* Input fills the wrapper */
+        padding: 10px 15px 10px 40px; /* Adjusted padding-left for icon */
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 1rem; /* Adjusted font size */
+        outline: none;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .product-search-input:focus {
+        border-color: var(--green);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px; /* Adjusted left position to be inside the input */
+        color: var(--green); /* Changed color to green */
+        font-size: 1.3rem; /* Adjusted font size */
+        top: 50%; /* Vertically center */
+        transform: translateY(-50%); /* Adjust for exact vertical centering */
+    }
+
+    .ticker-wrap {
+        background-color: var(--green-dark);
+        color: white;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative; /* For potential pseudo-elements if needed */
+    }
+
+    .ticker {
+        display: inline-block;
+        padding-left: 100%; /* Start the ticker off-screen */
+        animation: ticker-move 50s linear infinite;
+    }
+
+    .ticker span {
+        padding: 0 2rem;
+        font-size: 0.9rem;
+    }
+
+    @keyframes ticker-move {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .hero-carousel {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 50px); /* Adjust height to account for header/ticker if needed */
+        overflow: hidden;
+    }
+
+    .carousel-container {
+        display: flex;
+        width: 400%; /* 100% for each of the 4 slides */
+        height: 461px;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        width: 25%; /* Each slide is 1/4 of the container width */
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .carousel-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    }
+
+    .slide-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+
+    .slide-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .action-button {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1rem;
+        color: white;
+        background-color: var(--orange);
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .action-button:hover {
+        background-color: var(--orange-dark);
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 3;
+    }
+
+    .prev-btn, .next-btn {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        margin: 0 15px;
+    }
+
+    .prev-btn:hover, .next-btn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-dots {
+        position: absolute;
+        bottom: 142px; /* Adjusted to be slightly higher */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        z-index: 3;
+    }
+
+    .carousel-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-dots .dot.active {
+        background-color: white;
+    }
+
+/* Featured Offers Section */
+.featured-offers {
+    margin-top: -10rem;
+    padding: 40px 20px;
+    background-color: var(--gray-light);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--green-dark);
+    margin-bottom: 30px;
+}
+
+.offer-carousel-container {
+    max-width: 1060px; /* (250px * 4 cards) + (20px * 3 gaps) */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.offer-carousel-wrapper {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.offer-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    position: relative; 
+
+    padding-top: 1rem;
+}
+
+.offer-badge {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    background-color: #ff4757; /* Un rojo más vibrante */
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: rotate(10deg);
+}
+
+.offer-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--green), 0 0 30px var(--green);
+}
+
+.offer-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.offer-card h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 10px 0;
+    color: var(--text);
+}
+
+.offer-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--green-dark);
+    margin: 10px 0;
+}
+
+.delivery-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--orange);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--orange-dark);
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.category-card {
+    width: 250px;
+    height: 350px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+}
+
+.category-card-overlay h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.nuestros-productos {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--gray-light);
+}
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.testimonial-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--green);
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--green-dark);
+    font-size: 1rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--green-dark);
+    color: #f0f0f0;
+    padding: 50px 0 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 30px;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--orange);
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column li {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column a {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--orange);
+    padding-left: 5px;
+}
+
+.footer-column .fas {
+    margin-right: 10px;
+    color: var(--orange);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--orange);
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-whatsapp-btn:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+}
+
+/* --- Responsive Styles --- */
+
+/* Tablets and Small Desktops */
+@media (max-width: 1024px) {
+    .search-input-wrapper {
+        width: 25rem;
+    }
+
+    .offer-carousel-container {
+        max-width: 810px; /* (250px * 3 cards) + (20px * 2 gaps) */
+    }
+
+    .footer-container {
+        justify-content: flex-start;
+    }
+    .footer-column {
+        flex-basis: 45%;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px; /* Adjust base font size for better scaling */
+    }
+
+    .static-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 8px;
+        font-size: 0.75rem;
+    }
+    
+    .static-bar span {
+        text-align: center;
+    }
+
+    .main-header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .brand-logo {
+        order: 1;
+        font-size: 1.4rem;
+    }
+    
+    .hamburger-menu {
+        display: block;
+        order: 3; /* Move to the end */
+        background: none;
+        border: none;
+        color: var(--green-dark);
+        font-size: 2.5rem; /* Bigger tap target */
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .user-actions-container {
+        order: 2; /* Before hamburger */
+    }
+
+    .whatsapp-cart-button, .login-button {
+        padding: 6px 10px;
+    }
+
+    .whatsapp-cart-button .material-icons, .login-button .material-icons {
+        font-size: 1.5rem; /* Bigger icons */
+    }
+    
+    .search-bar-container {
+        order: 4;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .search-input-wrapper {
+        width: 100%;
+    }
+
+    .main-navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fdfdfd;
+        border-top: 1px solid #eee;
+        padding: 0;
+    }
+
+    .main-navbar.active {
+        display: flex;
+    }
+
+    .main-navbar a {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 1.1rem;
+    }
+    
+    .hero-carousel {
+        height: 50vh;
+    }
+
+    .slide-content h2 {
+        font-size: 1.6rem;
+    }
+    .action-button {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .featured-offers {
+        margin-top: 0;
+        padding: 30px 0;
+    }
+
+    .offer-carousel-container {
+        overflow-x: auto;
+        padding: 0 15px 15px 15px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Momentum scrolling */
+    }
+    
+    /* Hide scrollbar for a cleaner look */
+    .offer-carousel-container::-webkit-scrollbar {
+        display: none;
+    }
+    .offer-carousel-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .offer-carousel-wrapper {
+        justify-content: flex-start;
+    }
+
+    .offer-card {
+        scroll-snap-align: start;
+    }
+
+    .categories-section {
+        padding: 30px 15px;
+    }
+
+    .category-card {
+        width: 85vw;
+        max-width: 320px;
+        height: 300px;
+    }
+
+    .footer-column {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .footer-column h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .floating-whatsapp-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
